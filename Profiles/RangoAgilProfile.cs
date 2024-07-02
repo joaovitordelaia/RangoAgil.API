@@ -9,6 +9,8 @@ namespace RangoAgil.API.Profiles
         public RangoAgilProfile()// reponsa de mapear o dominio
         {
             CreateMap<Rango, RangoDTO>().ReverseMap();
+            CreateMap<Rango, RangoCriacaoDTO>().ReverseMap();
+            CreateMap<Rango, RangoToUpdateDTO>().ReverseMap();
             /*estamos criando o vinculo da DTO com o dominio base dele,
              e o reversemap é basicamente dizer que é de dois caminhos
             rangoDTO é de Rango e Rango é de RangoDTO*/
