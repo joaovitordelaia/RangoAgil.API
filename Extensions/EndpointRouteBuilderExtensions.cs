@@ -6,7 +6,7 @@ public static class EndpointRouteBuilderExtensions
 {
     public static void RegisterRangosEndPoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var rangosEndPoints = c.MapGroup("/rangos");
+        var rangosEndPoints = endpointRouteBuilder.MapGroup("/rangos");
         var rangosComIdEndPoints = rangosEndPoints.MapGroup("/{rangoId:int}");
 
         // O endpoint retorna um Task de Results que pode ser NoContent ou Ok com uma coleção de RangoDTO
@@ -27,10 +27,11 @@ public static class EndpointRouteBuilderExtensions
 
     public static void RegisterIngredientesEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var rangosIdIngredEndPoints = endpointRouteBuilder.MapGroup("/rangos/{rangoId:int}/ingredientes");
+        var IngredientesEndPoints = endpointRouteBuilder.MapGroup("/rangos/{rangoId:int}/ingredientes");
 
         // Mapeia uma rota GET para o endpoint "/rangos/{rangoId:int}/ingredientes"
-        rangosIdIngredEndPoints.MapGet("", IngredienteHandlers.getIngredienteAsync);
+        IngredientesEndPoints.MapGet("", IngredienteHandlers.getIngredienteAsync);
+        //IngredientesEndPoints.MapPost("", );
     }
 }
 
