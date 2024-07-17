@@ -6,10 +6,11 @@ using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<RangoDbContext>(o => o.UseSqlite(builder.Configuration["ConnectionStrings:RangoDbConStr"]));
+builder.Services.AddProblemDetails();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
-builder.Services.AddProblemDetails();
+
 
 if (!app.Environment.IsProduction())
 {
