@@ -19,7 +19,7 @@ public  class RangoLocked : IEndpointFilter
         {
             rangoId = context.GetArgument<int>(3);
         }
-        else if (context.HttpContext.Request.Method == "Delete")
+        else if (context.HttpContext.Request.Method == "DELETE")
         {
             rangoId = context.GetArgument<int>(1);
         }
